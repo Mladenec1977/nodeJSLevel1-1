@@ -26,7 +26,7 @@ for( let el of noValidEmail) {
 /**
  * Function for checking phone.
  * @param {*} phone 
- * @returns 
+ * @returns true / false
  */
 function validatePhone(phone) {
     let regexp = /^(?=.{10,25}$)((\+?[\- ]*?((\d[\s-]*?){2}))?([\s-]*?))((\(?[\s-]*?((\d[\s-]*?){3})\))?|((\d[\s-]*?){3}))([\s-]*?\d[\s-]*?){7}$/;
@@ -48,6 +48,36 @@ for( let el of validPhone) {
 // test no valid
 for( let el of noValidPhone) {
     if (validatePhone(el)) {
+        console.log(`${el}` + " - test failed");
+    } else {
+        console.log(`${el}` + " - OK");
+    }
+}
+/**
+ * Function for checking password.
+ * @param {*} pass 
+ * @returns true / false
+ */
+function validatePassword(pass) {
+    //let regexp = /^(([\p{Lu}+\p{Ll}+_+\d+]){8,}$)$/gu;
+    let regexp = /(\p{Lu}(?=.*[\p{Ll}\d])|(?<=[\p{Ll}\d]).*\p{Lu})/u;
+    //let regexp = /((.)?\p{Lu}(?=.*(([\d].*[\p{Ll}])|([\p{Ll}].*[\d]))+.*))/u;
+    return regexp.test(pass);
+}
+let validPassword = ["C00l_Pass", "SupperPas1"];
+let noValidPassword = ["Cool_pass", "C00l"];
+
+// test valid
+for( let el of validPassword) {
+    if (!validatePassword(el)) {
+        console.log(`${el}` + " - test failed");
+    } else {
+        console.log(`${el}` + " - OK");
+    }
+}
+// test no valid
+for( let el of noValidPassword) {
+    if (validatePassword(el)) {
         console.log(`${el}` + " - test failed");
     } else {
         console.log(`${el}` + " - OK");
