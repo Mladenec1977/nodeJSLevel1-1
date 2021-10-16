@@ -29,7 +29,7 @@ for( let el of noValidEmail) {
  * @returns 
  */
 function validatePhone(phone) {
-    let regexp = /([^a-z])*([0-9])$/;    
+    let regexp = /^(?=.{10,25}$)((\+?[\- ]*?((\d[\s-]*?){2}))?([\s-]*?))((\(?[\s-]*?((\d[\s-]*?){3})\))?|((\d[\s-]*?){3}))([\s-]*?\d[\s-]*?){7}$/;
     return regexp.test(phone);
 }
 let validPhone = ["+38 (099) 567 8901", "+38 099 5 6 7 8 9  01", "(09-9) 567-890-1",
