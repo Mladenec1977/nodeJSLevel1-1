@@ -76,6 +76,13 @@ Object.assign(AbstractProduct.prototype, {
     },
     getPriceForQuantity(int) {
         return 'Quantity ' + int + " = $" + (this.price * int);
+    },
+    superFunction (name = 'name', value = '') {
+        if (value == '') {
+            return this[name];
+        } else {
+            this[name] = value;
+        }
     }
 })
 /**
@@ -142,3 +149,5 @@ console.log(test2.getID());
 console.log(test2.getName());
 console.log(test2.getFullInformation());
 console.log(test2.getPriceForQuantity(10));
+test2.superFunction('name', 'Vasya');
+console.log(test2.superFunction('name'));
