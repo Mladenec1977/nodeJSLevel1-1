@@ -77,8 +77,8 @@ Object.assign(AbstractProduct.prototype, {
     getPriceForQuantity(int) {
         return 'Quantity ' + int + " = $" + (this.price * int);
     },
-    superFunction (name = 'name', value = '') {
-        if (value == '') {
+    superFunction (name = 'name', value = null) {
+        if (value == null) {
             return this[name];
         } else {
             this[name] = value;
