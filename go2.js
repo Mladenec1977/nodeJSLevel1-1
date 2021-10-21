@@ -30,12 +30,11 @@ function parseTcpStringAsHttpRequest(string) {
     for (let item of arr) {        
         let arr2 = item.split(': ');        
         if (arr2.length > 1) {
-            let resHed = {};
-            resHed[arr2[0]] = arr2[1];            
+            let resHed = [arr2[0], arr2[1]];            
             header.push(resHed);
         }
     }
-    let body = string.split('\n\n')[1] || '';    
+    let body = string.split('\n\n')[1] || '';
   return {
     method: arr[0].split(' ')[0], 
     uri: arr[0].split(' ')[1], 
